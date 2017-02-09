@@ -1,0 +1,1544 @@
+
+gpu0
+Creat folder: ./models-alexnet-1gpu-128b-gpu-24-13.local-11-4/
+folder exists: ./inforec/
+{'alpha_minus': 0,
+ 'alpha_step': [10, 30, 50],
+ 'batch_crop_mirror': False,
+ 'batch_size': 128,
+ 'comm': <mpi4py.MPI.Intracomm object at 0x2ac40ca1caf0>,
+ 'data_source': 'hkl',
+ 'debug': False,
+ 'device': 'gpu0',
+ 'dir_head': '/scratch/lt1410/MultiGPU/Data/Preprocessed/ilsvrc12',
+ 'dropout_init_seed': 0,
+ 'exch_strategy': 'asa32',
+ 'file_batch_size': 128,
+ 'flag_top_5': True,
+ 'image_mean': 'img_mean',
+ 'initial_val': False,
+ 'input_height': 227,
+ 'input_width': 227,
+ 'label_folder': '/labels/',
+ 'learning_rate': 0.01,
+ 'lib_conv': 'cudnn',
+ 'load_epoch': 20,
+ 'load_path': './pretrained-models/',
+ 'lr_adapt_threshold': 0.01,
+ 'lr_policy': 'step',
+ 'lr_step': [20, 40, 60],
+ 'mean_file': '/misc/img_mean.npy',
+ 'momentum': 0.9,
+ 'monitor_grad': False,
+ 'n_epochs': 70,
+ 'n_softmax_out': 1000,
+ 'n_subb': 1,
+ 'name': 'alexnet',
+ 'para_load': True,
+ 'pretrain': False,
+ 'print_freq': 2,
+ 'print_info_every': 5120,
+ 'print_train_error': True,
+ 'rand_crop': True,
+ 'rank': 0,
+ 'record_dir': './inforec/',
+ 'resume_train': False,
+ 'server_alpha': 0.5,
+ 'shuffle': True,
+ 'size': 1,
+ 'snapshot_freq': 2,
+ 'sock_data': 31687,
+ 'sync_freq': 1,
+ 'sync_start': True,
+ 'train_folder': '/train_hkl_b256_b_128/',
+ 'use_data_layer': False,
+ 'use_momentum': True,
+ 'use_nesterov_momentum': False,
+ 'val_folder': '/val_hkl_b256_b_128/',
+ 'verbose': True,
+ 'weight_decay': 0.0005,
+ 'weight_init_seed': 23455,
+ 'weights_dir': './models-alexnet-1gpu-128b-gpu-24-13.local-11-4/',
+ 'worker_alpha': 0.5,
+ 'worker_id': 26667,
+ 'worker_type': 'avg'}
+bad list is []
+bad list is []
+train on 200 files
+val on 200 files
+--------------------------------------------------------------------------
+An MPI process has executed an operation involving a call to the
+"fork()" system call to create a child process.  Open MPI is currently
+operating in a condition that could result in memory corruption or
+other system errors; your MPI job may hang, crash, or produce silent
+data corruption.  The use of fork() (or system() or other calls that
+create child processes) is strongly discouraged.  
+
+The process that invoked fork was:
+
+  Local host:          gpu-24-13 (PID 26667)
+  MPI_COMM_WORLD rank: 0
+
+If you are *absolutely sure* that your application will successfully
+and correctly survive a call to fork(), you may disable this warning
+by setting the mpi_warn_on_fork MCA parameter to 0.
+--------------------------------------------------------------------------
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN 4007)
+AlexNet 2/16
+conv (cudnn) layer with shape_in: (3, 227, 227, 128)
+conv (cudnn) layer with shape_in: (96, 27, 27, 128)
+conv (cudnn) layer with shape_in: (256, 13, 13, 128)
+conv (cudnn) layer with shape_in: (384, 13, 13, 128)
+conv (cudnn) layer with shape_in: (384, 13, 13, 128)
+fc layer with num_in: 9216 num_out: 4096
+dropout layer with P_drop: 0.5
+fc layer with num_in: 4096 num_out: 4096
+dropout layer with P_drop: 0.5
+softmax layer with num_in: 4096 num_out: 1000
+compiling training function...
+compiling validation function...
+compile_time 18.25 s
+1
+0
+rank0:numa0
+worker started
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/proc_load_mpi.py:80: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  crop_ys:crop_ys + cropsize]
+
+40 6.905950 0.998633
+time per 5120 images: 51.48 (train 33.52 comm 0.00 wait 17.96)
+
+80 6.899686 0.999414
+time per 5120 images: 50.21 (train 33.66 comm 0.00 wait 16.55)
+
+120 6.894727 0.998828
+time per 5120 images: 50.80 (train 33.42 comm 0.00 wait 17.37)
+
+160 6.889197 0.999609
+time per 5120 images: 50.34 (train 33.53 comm 0.00 wait 16.81)
+
+200 6.880796 0.998242
+time per 5120 images: 50.52 (train 33.63 comm 0.00 wait 16.90)
+global epoch 1 took 0.07 h
+
+
+Now validating
+/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/proc_load_mpi.py:56: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  crop_ys:crop_ys + cropsize, :]
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:6.8773
+validation error:0.9990
+validation top_5_error:0.9946
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+240 6.853732 0.998828
+time per 5120 images: 48.39 (train 34.20 comm 0.00 wait 14.19)
+
+280 6.853702 0.998437
+time per 5120 images: 48.10 (train 33.92 comm 0.00 wait 14.17)
+
+320 6.854666 0.998437
+time per 5120 images: 48.87 (train 33.99 comm 0.00 wait 14.88)
+
+360 6.845077 0.998242
+time per 5120 images: 48.33 (train 33.87 comm 0.00 wait 14.46)
+
+400 6.844200 0.998633
+time per 5120 images: 48.51 (train 33.95 comm 0.00 wait 14.56)
+global epoch 2 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:6.8474
+validation error:0.9990
+validation top_5_error:0.9940
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 2
+
+Now training
+training data shuffled
+
+440 6.818133 0.998242
+time per 5120 images: 49.26 (train 34.18 comm 0.00 wait 15.08)
+
+480 6.831913 0.998633
+time per 5120 images: 47.81 (train 34.26 comm 0.00 wait 13.55)
+
+520 6.831546 0.998828
+time per 5120 images: 48.18 (train 34.20 comm 0.00 wait 13.98)
+
+560 6.823695 0.998633
+time per 5120 images: 47.96 (train 34.10 comm 0.00 wait 13.86)
+
+600 6.823343 0.999609
+time per 5120 images: 48.18 (train 34.14 comm 0.00 wait 14.05)
+global epoch 3 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:6.8453
+validation error:0.9989
+validation top_5_error:0.9940
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+640 6.799723 0.997656
+time per 5120 images: 48.25 (train 34.09 comm 0.00 wait 14.16)
+
+680 6.807077 0.998047
+time per 5120 images: 47.85 (train 34.19 comm 0.00 wait 13.66)
+
+720 6.809549 0.998633
+time per 5120 images: 47.92 (train 34.35 comm 0.00 wait 13.58)
+
+760 6.807464 0.997852
+time per 5120 images: 48.16 (train 34.18 comm 0.00 wait 13.98)
+
+800 6.800921 0.997461
+time per 5120 images: 48.22 (train 33.96 comm 0.00 wait 14.26)
+global epoch 4 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:6.8746
+validation error:0.9986
+validation top_5_error:0.9939
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 4
+
+Now training
+training data shuffled
+
+840 6.770431 0.998828
+time per 5120 images: 48.14 (train 34.27 comm 0.00 wait 13.86)
+
+880 6.776260 0.996875
+time per 5120 images: 47.35 (train 34.29 comm 0.00 wait 13.06)
+
+920 6.762529 0.996875
+time per 5120 images: 47.42 (train 34.06 comm 0.00 wait 13.36)
+
+960 6.748221 0.998437
+time per 5120 images: 47.48 (train 34.10 comm 0.00 wait 13.38)
+
+1000 6.726708 0.998633
+time per 5120 images: 47.93 (train 34.26 comm 0.00 wait 13.67)
+global epoch 5 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:6.9241
+validation error:0.9989
+validation top_5_error:0.9941
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+1040 6.685158 0.996875
+time per 5120 images: 47.65 (train 34.21 comm 0.00 wait 13.44)
+
+1080 6.676907 0.998633
+time per 5120 images: 47.31 (train 34.44 comm 0.00 wait 12.86)
+
+1120 6.695485 0.996484
+time per 5120 images: 47.62 (train 34.24 comm 0.00 wait 13.38)
+
+1160 6.675306 0.997266
+time per 5120 images: 47.52 (train 34.07 comm 0.00 wait 13.46)
+
+1200 6.678462 0.996484
+time per 5120 images: 48.22 (train 34.40 comm 0.00 wait 13.83)
+global epoch 6 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:6.9398
+validation error:0.9990
+validation top_5_error:0.9942
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 6
+
+Now training
+training data shuffled
+
+1240 6.627434 0.996680
+time per 5120 images: 48.23 (train 34.29 comm 0.00 wait 13.95)
+
+1280 6.639131 0.996289
+time per 5120 images: 47.76 (train 34.04 comm 0.00 wait 13.72)
+
+1320 6.633847 0.996484
+time per 5120 images: 48.23 (train 34.17 comm 0.00 wait 14.06)
+
+1360 6.651545 0.998242
+time per 5120 images: 48.21 (train 34.09 comm 0.00 wait 14.12)
+
+1400 6.631288 0.997266
+time per 5120 images: 48.28 (train 34.23 comm 0.00 wait 14.05)
+global epoch 7 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.0535
+validation error:0.9987
+validation top_5_error:0.9939
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+1440 6.583549 0.995703
+time per 5120 images: 48.29 (train 34.10 comm 0.00 wait 14.19)
+
+1480 6.618931 0.996680
+time per 5120 images: 47.66 (train 34.29 comm 0.00 wait 13.37)
+
+1520 6.597179 0.997070
+time per 5120 images: 47.38 (train 34.38 comm 0.00 wait 13.00)
+
+1560 6.593255 0.995703
+time per 5120 images: 47.17 (train 34.05 comm 0.00 wait 13.12)
+
+1600 6.591888 0.997461
+time per 5120 images: 47.79 (train 34.04 comm 0.00 wait 13.76)
+global epoch 8 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.0717
+validation error:0.9987
+validation top_5_error:0.9948
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 8
+
+Now training
+training data shuffled
+
+1640 6.541248 0.995898
+time per 5120 images: 48.64 (train 34.00 comm 0.00 wait 14.64)
+
+1680 6.559671 0.996680
+time per 5120 images: 47.90 (train 34.14 comm 0.00 wait 13.75)
+
+1720 6.549258 0.995898
+time per 5120 images: 48.80 (train 34.09 comm 0.00 wait 14.71)
+
+1760 6.539361 0.994922
+time per 5120 images: 49.24 (train 33.77 comm 0.00 wait 15.47)
+
+1800 6.516103 0.993750
+time per 5120 images: 49.01 (train 34.03 comm 0.00 wait 14.98)
+global epoch 9 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.1242
+validation error:0.9991
+validation top_5_error:0.9950
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+1840 6.450906 0.993750
+time per 5120 images: 48.03 (train 34.31 comm 0.00 wait 13.72)
+
+1880 6.446716 0.992383
+time per 5120 images: 47.45 (train 33.97 comm 0.00 wait 13.47)
+
+1920 6.464374 0.993750
+time per 5120 images: 62.28 (train 34.30 comm 0.00 wait 27.98)
+
+1960 6.438819 0.994141
+time per 5120 images: 47.83 (train 34.14 comm 0.00 wait 13.69)
+
+2000 6.434870 0.992188
+time per 5120 images: 48.21 (train 34.08 comm 0.00 wait 14.13)
+global epoch 10 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.2943
+validation error:0.9990
+validation top_5_error:0.9947
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 10
+
+Now training
+training data shuffled
+
+2040 6.317996 0.990039
+time per 5120 images: 55.48 (train 34.41 comm 0.00 wait 21.07)
+
+2080 6.379117 0.992578
+time per 5120 images: 48.03 (train 34.06 comm 0.00 wait 13.97)
+
+2120 6.366506 0.992383
+time per 5120 images: 48.34 (train 34.03 comm 0.00 wait 14.31)
+
+2160 6.331319 0.992578
+time per 5120 images: 48.37 (train 33.96 comm 0.00 wait 14.42)
+
+2200 6.313518 0.989258
+time per 5120 images: 48.68 (train 34.13 comm 0.00 wait 14.55)
+global epoch 11 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.3241
+validation error:0.9986
+validation top_5_error:0.9941
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+2240 6.204022 0.987305
+time per 5120 images: 48.13 (train 34.36 comm 0.00 wait 13.77)
+
+2280 6.240481 0.987305
+time per 5120 images: 47.50 (train 34.12 comm 0.00 wait 13.38)
+
+2320 6.257255 0.990430
+time per 5120 images: 66.02 (train 34.55 comm 0.00 wait 31.47)
+
+2360 6.258546 0.989453
+time per 5120 images: 48.39 (train 34.00 comm 0.00 wait 14.39)
+
+2400 6.215034 0.987891
+time per 5120 images: 48.53 (train 33.97 comm 0.00 wait 14.56)
+global epoch 12 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.5836
+validation error:0.9991
+validation top_5_error:0.9952
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 12
+
+Now training
+training data shuffled
+
+2440 6.120455 0.988086
+time per 5120 images: 77.26 (train 34.55 comm 0.00 wait 42.70)
+
+2480 6.176316 0.986914
+time per 5120 images: 47.78 (train 33.94 comm 0.00 wait 13.84)
+
+2520 6.111444 0.984180
+time per 5120 images: 47.73 (train 34.17 comm 0.00 wait 13.56)
+
+2560 6.131744 0.984766
+time per 5120 images: 48.02 (train 34.32 comm 0.00 wait 13.69)
+
+2600 6.153681 0.985352
+time per 5120 images: 47.87 (train 33.91 comm 0.00 wait 13.96)
+global epoch 13 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.4269
+validation error:0.9991
+validation top_5_error:0.9947
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+2640 5.984353 0.982422
+time per 5120 images: 48.26 (train 34.12 comm 0.00 wait 14.14)
+
+2680 6.024055 0.981250
+time per 5120 images: 47.67 (train 34.26 comm 0.00 wait 13.41)
+
+2720 6.059660 0.984180
+time per 5120 images: 57.47 (train 34.23 comm 0.00 wait 23.24)
+
+2760 6.004454 0.982617
+time per 5120 images: 47.90 (train 34.12 comm 0.00 wait 13.78)
+
+2800 6.028564 0.982422
+time per 5120 images: 48.64 (train 34.00 comm 0.00 wait 14.65)
+global epoch 14 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.4902
+validation error:0.9991
+validation top_5_error:0.9945
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 14
+
+Now training
+training data shuffled
+
+2840 5.914763 0.977930
+time per 5120 images: 56.93 (train 34.42 comm 0.00 wait 22.51)
+
+2880 5.911791 0.983789
+time per 5120 images: 47.41 (train 34.08 comm 0.00 wait 13.33)
+
+2920 5.922549 0.977930
+time per 5120 images: 47.84 (train 33.96 comm 0.00 wait 13.88)
+
+2960 5.922521 0.975977
+time per 5120 images: 48.82 (train 33.70 comm 0.00 wait 15.12)
+
+3000 5.924130 0.978320
+time per 5120 images: 48.88 (train 33.61 comm 0.00 wait 15.26)
+global epoch 15 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.6015
+validation error:0.9993
+validation top_5_error:0.9956
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+3040 5.783498 0.975195
+time per 5120 images: 48.80 (train 33.92 comm 0.00 wait 14.88)
+
+3080 5.771821 0.974414
+time per 5120 images: 47.57 (train 34.13 comm 0.00 wait 13.44)
+
+3120 5.780179 0.968359
+time per 5120 images: 77.55 (train 33.89 comm 0.00 wait 43.66)
+
+3160 5.864142 0.975781
+time per 5120 images: 48.74 (train 33.97 comm 0.00 wait 14.78)
+
+3200 5.840262 0.973828
+time per 5120 images: 48.17 (train 34.00 comm 0.00 wait 14.18)
+global epoch 16 took 0.08 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.9047
+validation error:0.9992
+validation top_5_error:0.9948
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 16
+
+Now training
+training data shuffled
+
+3240 5.650584 0.966992
+time per 5120 images: 63.44 (train 34.07 comm 0.00 wait 29.38)
+
+3280 5.686191 0.971289
+time per 5120 images: 48.49 (train 33.79 comm 0.00 wait 14.70)
+
+3320 5.750120 0.975000
+time per 5120 images: 74.86 (train 34.15 comm 0.00 wait 40.71)
+
+3360 5.719298 0.968945
+time per 5120 images: 50.39 (train 34.13 comm 0.00 wait 16.26)
+
+3400 5.711208 0.969531
+time per 5120 images: 81.56 (train 34.08 comm 0.00 wait 47.49)
+global epoch 17 took 0.09 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.9778
+validation error:0.9993
+validation top_5_error:0.9951
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+3440 5.535572 0.959961
+time per 5120 images: 48.83 (train 33.83 comm 0.00 wait 15.01)
+
+3480 5.649270 0.967383
+time per 5120 images: 47.78 (train 34.05 comm 0.00 wait 13.73)
+
+3520 5.556476 0.958008
+time per 5120 images: 75.58 (train 33.82 comm 0.00 wait 41.76)
+
+3560 5.614007 0.963086
+time per 5120 images: 49.08 (train 33.57 comm 0.00 wait 15.51)
+
+3600 5.599608 0.962695
+time per 5120 images: 48.65 (train 33.80 comm 0.00 wait 14.85)
+global epoch 18 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:7.9858
+validation error:0.9991
+validation top_5_error:0.9950
+Learning rate now: 0.0099999998
+
+weights and momentums saved at epoch 18
+
+Now training
+training data shuffled
+
+3640 5.459293 0.958594
+time per 5120 images: 60.14 (train 34.34 comm 0.00 wait 25.80)
+
+3680 5.457087 0.955859
+time per 5120 images: 48.03 (train 34.27 comm 0.00 wait 13.76)
+
+3720 5.506090 0.960156
+time per 5120 images: 48.00 (train 33.90 comm 0.00 wait 14.11)
+
+3760 5.482885 0.958594
+time per 5120 images: 48.57 (train 33.99 comm 0.00 wait 14.59)
+
+3800 5.512830 0.960547
+time per 5120 images: 60.35 (train 33.99 comm 0.00 wait 26.37)
+global epoch 19 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:8.1550
+validation error:0.9988
+validation top_5_error:0.9945
+Learning rate now: 0.0099999998
+
+Now training
+training data shuffled
+
+3840 5.243697 0.941016
+time per 5120 images: 48.59 (train 34.25 comm 0.00 wait 14.34)
+
+3880 5.329383 0.951562
+time per 5120 images: 47.44 (train 34.07 comm 0.00 wait 13.37)
+
+3920 5.361093 0.950195
+time per 5120 images: 82.45 (train 34.18 comm 0.00 wait 48.27)
+
+3960 5.420677 0.953320
+time per 5120 images: 50.02 (train 33.95 comm 0.00 wait 16.07)
+
+4000 5.450281 0.952734
+time per 5120 images: 49.16 (train 33.66 comm 0.00 wait 15.50)
+global epoch 20 took 0.08 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:8.2104
+validation error:0.9991
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 20
+
+Now training
+training data shuffled
+
+4040 5.202772 0.943945
+time per 5120 images: 48.66 (train 34.15 comm 0.00 wait 14.51)
+
+4080 4.968379 0.924609
+time per 5120 images: 47.45 (train 34.17 comm 0.00 wait 13.29)
+
+4120 4.941378 0.921875
+time per 5120 images: 50.15 (train 34.27 comm 0.00 wait 15.89)
+
+4160 4.891386 0.917578
+time per 5120 images: 48.18 (train 33.94 comm 0.00 wait 14.24)
+
+4200 4.896269 0.916602
+time per 5120 images: 61.68 (train 34.06 comm 0.00 wait 27.62)
+global epoch 21 took 0.07 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:8.9292
+validation error:0.9991
+validation top_5_error:0.9946
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+4240 4.783058 0.898633
+time per 5120 images: 48.46 (train 34.22 comm 0.00 wait 14.24)
+
+4280 4.804270 0.903906
+time per 5120 images: 48.72 (train 34.32 comm 0.00 wait 14.40)
+
+4320 4.780188 0.906445
+time per 5120 images: 70.07 (train 33.87 comm 0.00 wait 36.20)
+
+4360 4.797160 0.906641
+time per 5120 images: 47.96 (train 33.96 comm 0.00 wait 14.00)
+
+4400 4.780129 0.902930
+time per 5120 images: 54.79 (train 34.05 comm 0.00 wait 20.74)
+global epoch 22 took 0.08 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.1212
+validation error:0.9990
+validation top_5_error:0.9943
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 22
+
+Now training
+training data shuffled
+
+4440 4.706551 0.900000
+time per 5120 images: 48.57 (train 33.88 comm 0.00 wait 14.69)
+
+4480 4.657689 0.895508
+time per 5120 images: 57.40 (train 34.11 comm 0.00 wait 23.29)
+
+4520 4.719464 0.906055
+time per 5120 images: 76.27 (train 34.13 comm 0.00 wait 42.14)
+
+4560 4.734045 0.903320
+time per 5120 images: 132.52 (train 34.38 comm 0.00 wait 98.13)
+
+4600 4.787864 0.905664
+time per 5120 images: 48.42 (train 33.68 comm 0.00 wait 14.74)
+global epoch 23 took 0.10 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.1656
+validation error:0.9991
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+4640 4.596854 0.891602
+time per 5120 images: 66.88 (train 34.09 comm 0.00 wait 32.79)
+
+4680 4.684292 0.896094
+time per 5120 images: 47.80 (train 34.06 comm 0.00 wait 13.74)
+
+4720 4.688109 0.894141
+time per 5120 images: 48.54 (train 34.13 comm 0.00 wait 14.41)
+
+4760 4.660647 0.892188
+time per 5120 images: 47.59 (train 33.88 comm 0.00 wait 13.71)
+
+4800 4.665066 0.893359
+time per 5120 images: 75.55 (train 33.96 comm 0.00 wait 41.60)
+global epoch 24 took 0.08 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.2387
+validation error:0.9990
+validation top_5_error:0.9943
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 24
+
+Now training
+training data shuffled
+
+4840 4.535582 0.881445
+time per 5120 images: 48.16 (train 34.25 comm 0.00 wait 13.92)
+
+4880 4.551473 0.885547
+time per 5120 images: 78.47 (train 34.17 comm 0.00 wait 44.30)
+
+4920 4.614934 0.891211
+time per 5120 images: 97.10 (train 34.33 comm 0.00 wait 62.77)
+
+4960 4.659174 0.893945
+time per 5120 images: 75.35 (train 34.09 comm 0.00 wait 41.26)
+
+5000 4.621669 0.891992
+time per 5120 images: 108.72 (train 34.42 comm 0.00 wait 74.31)
+global epoch 25 took 0.11 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.3362
+validation error:0.9991
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+5040 4.509672 0.884766
+time per 5120 images: 184.53 (train 34.28 comm 0.00 wait 150.25)
+
+5080 4.533418 0.879883
+time per 5120 images: 164.63 (train 34.67 comm 0.00 wait 129.96)
+
+5120 4.545444 0.886719
+time per 5120 images: 47.80 (train 34.07 comm 0.00 wait 13.73)
+
+5160 4.542956 0.888477
+time per 5120 images: 49.14 (train 33.79 comm 0.00 wait 15.35)
+
+5200 4.565313 0.885156
+time per 5120 images: 56.19 (train 34.10 comm 0.00 wait 22.08)
+global epoch 26 took 0.14 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.3170
+validation error:0.9990
+validation top_5_error:0.9940
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 26
+
+Now training
+training data shuffled
+
+5240 4.413528 0.867188
+time per 5120 images: 49.83 (train 34.05 comm 0.00 wait 15.78)
+
+5280 4.516314 0.883203
+time per 5120 images: 47.68 (train 34.01 comm 0.00 wait 13.66)
+
+5320 4.483982 0.878516
+time per 5120 images: 47.72 (train 33.87 comm 0.00 wait 13.84)
+
+5360 4.454483 0.868164
+time per 5120 images: 94.09 (train 34.42 comm 0.00 wait 59.67)
+
+5400 4.510850 0.880078
+time per 5120 images: 54.22 (train 33.99 comm 0.00 wait 20.23)
+global epoch 27 took 0.08 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.3568
+validation error:0.9990
+validation top_5_error:0.9943
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+5440 4.370856 0.870117
+time per 5120 images: 57.20 (train 34.22 comm 0.00 wait 22.98)
+
+5480 4.400161 0.864453
+time per 5120 images: 82.99 (train 34.32 comm 0.00 wait 48.68)
+
+5520 4.439951 0.880273
+time per 5120 images: 48.74 (train 33.80 comm 0.00 wait 14.94)
+
+5560 4.424364 0.881836
+time per 5120 images: 47.48 (train 34.08 comm 0.00 wait 13.40)
+
+5600 4.490947 0.877539
+time per 5120 images: 58.41 (train 33.79 comm 0.00 wait 24.62)
+global epoch 28 took 0.08 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.5235
+validation error:0.9990
+validation top_5_error:0.9943
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 28
+
+Now training
+training data shuffled
+
+5640 4.333756 0.868945
+time per 5120 images: 48.42 (train 34.12 comm 0.00 wait 14.29)
+
+5680 4.318444 0.860742
+time per 5120 images: 47.76 (train 34.03 comm 0.00 wait 13.73)
+
+5720 4.351032 0.864258
+time per 5120 images: 104.34 (train 34.31 comm 0.00 wait 70.02)
+
+5760 4.410213 0.874023
+time per 5120 images: 74.34 (train 33.87 comm 0.00 wait 40.47)
+
+5800 4.389628 0.866406
+time per 5120 images: 125.62 (train 34.60 comm 0.00 wait 91.02)
+global epoch 29 took 0.11 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.6039
+validation error:0.9991
+validation top_5_error:0.9944
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+5840 4.238902 0.854102
+time per 5120 images: 68.02 (train 34.25 comm 0.00 wait 33.77)
+
+5880 4.298888 0.856055
+time per 5120 images: 123.36 (train 34.46 comm 0.00 wait 88.91)
+
+5920 4.282588 0.859180
+time per 5120 images: 52.51 (train 33.98 comm 0.00 wait 18.53)
+
+5960 4.337937 0.864648
+time per 5120 images: 76.96 (train 33.95 comm 0.00 wait 43.01)
+
+6000 4.394410 0.876758
+time per 5120 images: 52.34 (train 33.99 comm 0.00 wait 18.35)
+global epoch 30 took 0.10 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.5985
+validation error:0.9990
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 30
+
+Now training
+training data shuffled
+
+6040 4.177860 0.849805
+time per 5120 images: 122.15 (train 34.37 comm 0.00 wait 87.79)
+
+6080 4.265088 0.855859
+time per 5120 images: 81.90 (train 33.86 comm 0.00 wait 48.04)
+
+6120 4.187179 0.847852
+time per 5120 images: 56.44 (train 33.96 comm 0.00 wait 22.48)
+
+6160 4.232783 0.860352
+time per 5120 images: 51.62 (train 33.92 comm 0.00 wait 17.70)
+
+6200 4.299744 0.861719
+time per 5120 images: 93.10 (train 34.32 comm 0.00 wait 58.78)
+global epoch 31 took 0.11 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.6744
+validation error:0.9989
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+6240 4.082192 0.835156
+time per 5120 images: 65.11 (train 34.48 comm 0.00 wait 30.63)
+
+6280 4.163405 0.849414
+time per 5120 images: 108.06 (train 34.55 comm 0.00 wait 73.52)
+
+6320 4.195863 0.850000
+time per 5120 images: 77.36 (train 34.08 comm 0.00 wait 43.28)
+
+6360 4.211182 0.855859
+time per 5120 images: 70.41 (train 34.01 comm 0.00 wait 36.40)
+
+6400 4.188608 0.843164
+time per 5120 images: 208.34 (train 34.46 comm 0.00 wait 173.88)
+global epoch 32 took 0.15 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.9538
+validation error:0.9991
+validation top_5_error:0.9943
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 32
+
+Now training
+training data shuffled
+
+6440 3.983428 0.822656
+time per 5120 images: 101.15 (train 34.26 comm 0.00 wait 66.89)
+
+6480 4.068281 0.835742
+time per 5120 images: 147.78 (train 34.33 comm 0.00 wait 113.45)
+
+6520 4.133137 0.844531
+time per 5120 images: 238.97 (train 34.38 comm 0.00 wait 204.59)
+
+6560 4.172145 0.853320
+time per 5120 images: 154.75 (train 34.37 comm 0.00 wait 120.38)
+
+6600 4.133175 0.840234
+time per 5120 images: 168.71 (train 34.59 comm 0.00 wait 134.12)
+global epoch 33 took 0.23 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.8426
+validation error:0.9991
+validation top_5_error:0.9945
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+6640 3.977300 0.828516
+time per 5120 images: 217.06 (train 34.67 comm 0.00 wait 182.39)
+
+6680 3.981262 0.823828
+time per 5120 images: 175.27 (train 34.65 comm 0.00 wait 140.62)
+
+6720 4.032272 0.832812
+time per 5120 images: 107.97 (train 34.00 comm 0.00 wait 73.97)
+
+6760 4.061056 0.836719
+time per 5120 images: 47.92 (train 33.85 comm 0.00 wait 14.08)
+
+6800 4.128053 0.837109
+time per 5120 images: 47.79 (train 33.78 comm 0.00 wait 14.02)
+global epoch 34 took 0.17 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.9174
+validation error:0.9993
+validation top_5_error:0.9943
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 34
+
+Now training
+training data shuffled
+
+6840 3.856131 0.813086
+time per 5120 images: 116.74 (train 34.46 comm 0.00 wait 82.28)
+
+6880 3.959750 0.829297
+time per 5120 images: 93.03 (train 34.00 comm 0.00 wait 59.03)
+
+6920 3.936360 0.819531
+time per 5120 images: 131.67 (train 34.14 comm 0.00 wait 97.53)
+
+6960 3.989466 0.831055
+time per 5120 images: 52.80 (train 33.85 comm 0.00 wait 18.95)
+
+7000 3.983642 0.827148
+time per 5120 images: 164.63 (train 33.78 comm 0.00 wait 130.85)
+global epoch 35 took 0.16 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:10.0660
+validation error:0.9993
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+7040 3.725593 0.791016
+time per 5120 images: 131.81 (train 34.07 comm 0.00 wait 97.75)
+
+7080 3.828576 0.812891
+time per 5120 images: 55.72 (train 33.91 comm 0.00 wait 21.81)
+
+7120 3.889638 0.821680
+time per 5120 images: 52.92 (train 33.68 comm 0.00 wait 19.24)
+
+7160 3.920831 0.820312
+time per 5120 images: 62.97 (train 34.05 comm 0.00 wait 28.92)
+
+7200 3.945903 0.823828
+time per 5120 images: 86.75 (train 33.88 comm 0.00 wait 52.88)
+global epoch 36 took 0.11 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:9.9433
+validation error:0.9989
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 36
+
+Now training
+training data shuffled
+
+7240 3.702483 0.787109
+time per 5120 images: 152.33 (train 34.60 comm 0.00 wait 117.73)
+
+7280 3.791443 0.804102
+time per 5120 images: 74.13 (train 34.14 comm 0.00 wait 40.00)
+
+7320 3.752229 0.803320
+time per 5120 images: 54.65 (train 34.14 comm 0.00 wait 20.51)
+
+7360 3.817722 0.809961
+time per 5120 images: 86.73 (train 34.14 comm 0.00 wait 52.59)
+
+7400 3.870994 0.818750
+time per 5120 images: 139.09 (train 34.52 comm 0.00 wait 104.58)
+global epoch 37 took 0.14 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:10.1228
+validation error:0.9993
+validation top_5_error:0.9945
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+7440 3.582146 0.785742
+time per 5120 images: 75.58 (train 34.04 comm 0.00 wait 41.55)
+
+7480 3.650716 0.789648
+time per 5120 images: 66.40 (train 34.11 comm 0.00 wait 32.29)
+
+7520 3.706535 0.804297
+time per 5120 images: 160.35 (train 34.46 comm 0.00 wait 125.88)
+
+7560 3.832055 0.814258
+time per 5120 images: 114.58 (train 34.50 comm 0.00 wait 80.08)
+
+7600 3.751929 0.803125
+time per 5120 images: 82.46 (train 34.18 comm 0.00 wait 48.28)
+global epoch 38 took 0.14 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:10.2381
+validation error:0.9992
+validation top_5_error:0.9947
+Learning rate now: 0.0009999999
+
+weights and momentums saved at epoch 38
+
+Now training
+training data shuffled
+
+7640 3.505773 0.770703
+time per 5120 images: 218.31 (train 34.85 comm 0.00 wait 183.46)
+
+7680 3.605670 0.782617
+time per 5120 images: 190.79 (train 34.53 comm 0.00 wait 156.26)
+
+7720 3.660210 0.792969
+time per 5120 images: 79.95 (train 34.27 comm 0.00 wait 45.68)
+
+7760 3.661643 0.787109
+time per 5120 images: 148.54 (train 34.69 comm 0.00 wait 113.85)
+
+7800 3.689892 0.806445
+time per 5120 images: 95.66 (train 34.08 comm 0.00 wait 61.57)
+global epoch 39 took 0.20 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:10.4051
+validation error:0.9988
+validation top_5_error:0.9951
+Learning rate now: 0.0009999999
+
+Now training
+training data shuffled
+
+7840 3.401264 0.755664
+time per 5120 images: 81.86 (train 34.18 comm 0.00 wait 47.68)
+
+7880 3.442516 0.758203
+time per 5120 images: 87.51 (train 34.49 comm 0.00 wait 53.03)
+
+7920 3.530264 0.780664
+time per 5120 images: 123.26 (train 34.41 comm 0.00 wait 88.85)
+
+7960 3.606319 0.785937
+time per 5120 images: 90.49 (train 34.20 comm 0.00 wait 56.29)
+
+8000 3.628633 0.785937
+time per 5120 images: 157.62 (train 34.19 comm 0.00 wait 123.43)
+global epoch 40 took 0.15 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:10.3798
+validation error:0.9991
+validation top_5_error:0.9948
+Learning rate now: 0.0001000000
+
+weights and momentums saved at epoch 40
+
+Now training
+training data shuffled
+
+8040 3.287559 0.737891
+time per 5120 images: 201.23 (train 34.53 comm 0.00 wait 166.70)
+
+8080 3.299113 0.741016
+time per 5120 images: 161.82 (train 34.23 comm 0.00 wait 127.59)
+
+8120 3.244698 0.723437
+time per 5120 images: 145.83 (train 34.34 comm 0.00 wait 111.49)
+
+8160 3.223286 0.713672
+time per 5120 images: 131.87 (train 34.09 comm 0.00 wait 97.79)
+
+8200 3.222932 0.727344
+time per 5120 images: 78.05 (train 33.68 comm 0.00 wait 44.36)
+global epoch 41 took 0.20 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:10.9218
+validation error:0.9990
+validation top_5_error:0.9945
+Learning rate now: 0.0001000000
+
+Now training
+training data shuffled
+
+8240 3.181183 0.718555
+time per 5120 images: 74.36 (train 33.95 comm 0.00 wait 40.42)
+
+8280 3.177275 0.720703
+time per 5120 images: 79.99 (train 34.07 comm 0.00 wait 45.92)
+
+8320 3.138696 0.714258
+time per 5120 images: 165.56 (train 34.93 comm 0.00 wait 130.64)
+
+8360 3.201323 0.725586
+time per 5120 images: 195.81 (train 34.44 comm 0.00 wait 161.37)
+
+8400 3.152278 0.707031
+time per 5120 images: 217.07 (train 34.61 comm 0.00 wait 182.46)
+global epoch 42 took 0.20 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.0889
+validation error:0.9991
+validation top_5_error:0.9946
+Learning rate now: 0.0001000000
+
+weights and momentums saved at epoch 42
+
+Now training
+training data shuffled
+
+8440 3.121495 0.712695
+time per 5120 images: 303.10 (train 34.96 comm 0.00 wait 268.14)
+
+8480 3.133588 0.712500
+time per 5120 images: 242.56 (train 34.62 comm 0.00 wait 207.94)
+
+8520 3.081165 0.699609
+time per 5120 images: 217.85 (train 34.57 comm 0.00 wait 183.28)
+
+8560 3.167436 0.719141
+time per 5120 images: 263.58 (train 34.28 comm 0.00 wait 229.30)
+
+8600 3.171092 0.713281
+time per 5120 images: 221.57 (train 34.53 comm 0.00 wait 187.03)
+global epoch 43 took 0.35 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.1402
+validation error:0.9991
+validation top_5_error:0.9944
+Learning rate now: 0.0001000000
+
+Now training
+training data shuffled
+
+8640 3.080267 0.709570
+time per 5120 images: 166.95 (train 34.50 comm 0.00 wait 132.45)
+
+8680 3.028358 0.690430
+time per 5120 images: 214.41 (train 34.64 comm 0.00 wait 179.78)
+
+8720 3.130779 0.707812
+time per 5120 images: 155.08 (train 34.13 comm 0.00 wait 120.95)
+
+8760 3.081192 0.708398
+time per 5120 images: 181.09 (train 34.52 comm 0.00 wait 146.57)
+
+8800 3.116538 0.700781
+time per 5120 images: 238.77 (train 34.56 comm 0.00 wait 204.22)
+global epoch 44 took 0.27 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.2312
+validation error:0.9991
+validation top_5_error:0.9945
+Learning rate now: 0.0001000000
+
+weights and momentums saved at epoch 44
+
+Now training
+training data shuffled
+
+8840 3.050941 0.695312
+time per 5120 images: 217.05 (train 34.67 comm 0.00 wait 182.38)
+
+8880 3.038734 0.693359
+time per 5120 images: 135.62 (train 34.26 comm 0.00 wait 101.36)
+
+8920 3.047839 0.698828
+time per 5120 images: 201.60 (train 34.35 comm 0.00 wait 167.24)
+
+8960 3.094364 0.705469
+time per 5120 images: 189.14 (train 34.59 comm 0.00 wait 154.55)
+
+9000 3.070908 0.703906
+time per 5120 images: 202.10 (train 34.63 comm 0.00 wait 167.47)
+global epoch 45 took 0.26 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.2860
+validation error:0.9989
+validation top_5_error:0.9942
+Learning rate now: 0.0001000000
+
+Now training
+training data shuffled
+
+9040 3.017181 0.691406
+time per 5120 images: 177.07 (train 34.33 comm 0.00 wait 142.75)
+
+9080 3.065748 0.696875
+time per 5120 images: 128.24 (train 34.38 comm 0.00 wait 93.86)
+
+9120 3.043796 0.703516
+time per 5120 images: 217.72 (train 34.70 comm 0.00 wait 183.02)
+
+9160 3.035171 0.694727
+time per 5120 images: 276.39 (train 34.86 comm 0.00 wait 241.53)
+
+9200 3.059823 0.697070
+time per 5120 images: 229.97 (train 34.27 comm 0.00 wait 195.70)
+global epoch 46 took 0.29 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.3158
+validation error:0.9990
+validation top_5_error:0.9945
+Learning rate now: 0.0001000000
+
+weights and momentums saved at epoch 46
+
+Now training
+training data shuffled
+
+9240 2.966033 0.682422
+time per 5120 images: 234.66 (train 34.61 comm 0.00 wait 200.06)
+
+9280 2.923984 0.674805
+time per 5120 images: 317.73 (train 34.60 comm 0.00 wait 283.13)
+
+9320 3.076669 0.700391
+time per 5120 images: 384.90 (train 34.68 comm 0.00 wait 350.22)
+
+9360 3.003199 0.680469
+time per 5120 images: 286.71 (train 34.82 comm 0.00 wait 251.90)
+
+9400 3.038378 0.694336
+time per 5120 images: 277.39 (train 34.67 comm 0.00 wait 242.73)
+global epoch 47 took 0.42 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.3896
+validation error:0.9991
+validation top_5_error:0.9946
+Learning rate now: 0.0001000000
+
+Now training
+training data shuffled
+
+9440 2.973560 0.686719
+time per 5120 images: 284.35 (train 34.82 comm 0.00 wait 249.53)
+
+9480 2.987304 0.682813
+time per 5120 images: 352.47 (train 35.20 comm 0.00 wait 317.27)
+
+9520 2.991980 0.691406
+time per 5120 images: 334.69 (train 35.22 comm 0.00 wait 299.47)
+
+9560 3.045294 0.701367
+time per 5120 images: 288.33 (train 34.87 comm 0.00 wait 253.46)
+
+9600 3.013681 0.700977
+time per 5120 images: 405.92 (train 35.30 comm 0.00 wait 370.62)
+global epoch 48 took 0.46 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.4148
+validation error:0.9989
+validation top_5_error:0.9945
+Learning rate now: 0.0001000000
+
+weights and momentums saved at epoch 48
+
+Now training
+training data shuffled
+
+9640 2.953882 0.680469
+time per 5120 images: 534.57 (train 35.58 comm 0.00 wait 498.99)
+
+9680 2.921099 0.680078
+time per 5120 images: 509.97 (train 35.57 comm 0.00 wait 474.40)
+
+9720 2.966824 0.684570
+time per 5120 images: 476.24 (train 35.43 comm 0.00 wait 440.82)
+
+9760 2.973870 0.686328
+time per 5120 images: 535.07 (train 35.69 comm 0.00 wait 499.38)
+
+9800 3.035894 0.692773
+time per 5120 images: 519.19 (train 35.18 comm 0.00 wait 484.01)
+global epoch 49 took 0.72 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.4618
+validation error:0.9989
+validation top_5_error:0.9943
+Learning rate now: 0.0001000000
+
+Now training
+training data shuffled
+
+9840 2.927527 0.672070
+time per 5120 images: 592.49 (train 35.71 comm 0.00 wait 556.78)
+
+9880 2.935918 0.679492
+time per 5120 images: 563.08 (train 35.64 comm 0.00 wait 527.44)
+
+9920 2.959727 0.678125
+time per 5120 images: 532.39 (train 35.29 comm 0.00 wait 497.10)
+
+9960 2.956230 0.678125
+time per 5120 images: 512.96 (train 35.72 comm 0.00 wait 477.24)
+
+10000 2.971358 0.686523
+time per 5120 images: 500.96 (train 34.71 comm 0.00 wait 466.25)
+global epoch 50 took 0.75 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.5274
+validation error:0.9989
+validation top_5_error:0.9945
+Learning rate now: 0.0001000000
+
+weights and momentums saved at epoch 50
+
+Now training
+training data shuffled
+
+10040 2.841433 0.653320
+time per 5120 images: 429.75 (train 35.09 comm 0.00 wait 394.66)
+
+10080 2.930634 0.681250
+time per 5120 images: 500.29 (train 35.12 comm 0.00 wait 465.17)
+
+10120 3.004731 0.691211
+time per 5120 images: 471.66 (train 34.77 comm 0.00 wait 436.90)
+
+10160 2.949270 0.683789
+time per 5120 images: 250.05 (train 34.86 comm 0.00 wait 215.19)
+
+10200 2.961346 0.690430
+time per 5120 images: 255.04 (train 34.83 comm 0.00 wait 220.21)
+global epoch 51 took 0.53 h
+
+
+Now validating
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+validation cost:11.4469
+validation error:0.9990
+validation top_5_error:0.9943
+Learning rate now: 0.0001000000
+
+Now training
+training data shuffled
+
+10240 2.909900 0.676758
+time per 5120 images: 699.55 (train 35.87 comm 0.00 wait 663.68)
+
+

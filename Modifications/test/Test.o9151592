@@ -1,0 +1,378 @@
+
+gpu8
+gpu3
+gpu5
+gpu0
+gpu12
+gpu18
+gpu6
+gpu9
+gpu11
+gpu1
+gpu2
+gpu19
+gpu15
+gpu4
+gpu16
+gpu17
+gpu14
+gpu13
+gpu7
+gpu10
+Creat folder: ./models-alexnet-20gpu-128b-gpu-24-14.local-10-28/
+folder exists: ./inforec/
+{'alpha_minus': 0,
+ 'alpha_step': [10, 30, 50],
+ 'batch_crop_mirror': False,
+ 'batch_size': 128,
+ 'comm': <mpi4py.MPI.Intracomm object at 0x2b06be34caf0>,
+ 'data_source': 'hkl',
+ 'debug': False,
+ 'device': 'gpu0',
+ 'dir_head': '/scratch/lt1410/MultiGPU/Data/Preprocessed/ilsvrc12',
+ 'dropout_init_seed': 0,
+ 'exch_strategy': 'ar',
+ 'file_batch_size': 128,
+ 'flag_top_5': True,
+ 'image_mean': 'img_mean',
+ 'initial_val': False,
+ 'input_height': 227,
+ 'input_width': 227,
+ 'label_folder': '/labels/',
+ 'learning_rate': 0.01,
+ 'lib_conv': 'cudnn',
+ 'load_epoch': 20,
+ 'load_path': './pretrained-models/',
+ 'lr_adapt_threshold': 0.01,
+ 'lr_policy': 'step',
+ 'lr_step': [20, 40, 60],
+ 'mean_file': '/misc/img_mean.npy',
+ 'momentum': 0.9,
+ 'monitor_grad': False,
+ 'n_epochs': 70,
+ 'n_softmax_out': 1000,
+ 'n_subb': 1,
+ 'name': 'alexnet',
+ 'para_load': True,
+ 'pretrain': False,
+ 'print_freq': 2,
+ 'print_info_every': 5120,
+ 'print_train_error': True,
+ 'rand_crop': True,
+ 'rank': 0,
+ 'record_dir': './inforec/',
+ 'resume_train': False,
+ 'server_alpha': 0.5,
+ 'shuffle': True,
+ 'size': 20,
+ 'snapshot_freq': 2,
+ 'sock_data': 36075,
+ 'sync_freq': 1,
+ 'sync_start': True,
+ 'train_folder': '/train_hkl_b256_b_128/',
+ 'use_data_layer': False,
+ 'use_momentum': True,
+ 'use_nesterov_momentum': False,
+ 'val_folder': '/val_hkl_b256_b_128/',
+ 'verbose': True,
+ 'weight_decay': 0.0005,
+ 'weight_init_seed': 23455,
+ 'weights_dir': './models-alexnet-20gpu-128b-gpu-24-14.local-10-28/',
+ 'worker_alpha': 0.5,
+ 'worker_id': 31055,
+ 'worker_type': 'cdd'}
+bad list is []
+bad list is []
+train on 200 files
+val on 200 files
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    PTBase.__init__(self, config = config, device = device)
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    self.init_device()
+    dev = drv.Device(gpuid)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    dev = drv.Device(gpuid)
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    dev = drv.Device(gpuid)
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 157, in init_device
+    ctx = dev.make_context()
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+    device = device)
+pycuda._driver.LogicError: cuCtxCreate failed: invalid device ordinal
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 156, in init_device
+    dev = drv.Device(gpuid)
+    dev = drv.Device(gpuid)
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+pycuda._driver.LogicError: cuDeviceGet failed: invalid device ordinal
+--------------------------------------------------------------------------
+An MPI process has executed an operation involving a call to the
+"fork()" system call to create a child process.  Open MPI is currently
+operating in a condition that could result in memory corruption or
+other system errors; your MPI job may hang, crash, or produce silent
+data corruption.  The use of fork() (or system() or other calls that
+create child processes) is strongly discouraged.  
+
+The process that invoked fork was:
+
+  Local host:          gpu-24-14 (PID 31064)
+  MPI_COMM_WORLD rank: 10
+
+If you are *absolutely sure* that your application will successfully
+and correctly survive a call to fork(), you may disable this warning
+by setting the mpi_warn_on_fork MCA parameter to 0.
+--------------------------------------------------------------------------
+ERROR (theano.sandbox.cuda): ERROR: Not using GPU. Initialisation of device 10 failed:
+Bad device number 10. Only 1 devices available.
+ERR!\nERROR (theano.sandbox.cuda): ERROR: Not using GPU. Initialisation of device gpu failed:
+Not able to select available GPU from 1 cards (all CUDA-capable devices are busy or unavailable).
+Traceback (most recent call last):
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 501, in <module>
+    worker = BSP_PTWorker(config=config, device=device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/BSP_Worker.py", line 33, in __init__
+    device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 299, in __init__
+    PTBase.__init__(self, config = config, device = device)
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 51, in __init__
+    self.init_device()
+  File "/scratch/lt1410/MultiGPU/Theano-MPI/lib/base/PT.py", line 163, in init_device
+    import theano.sandbox.cuda
+  File "/share/apps/theano/0.8.2/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/__init__.py", line 111, in <module>
+    theano.sandbox.cuda.tests.test_driver.test_nvidia_driver1()
+  File "/share/apps/theano/0.8.2/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/sandbox/cuda/tests/test_driver.py", line 29, in test_nvidia_driver1
+    A = cuda.shared_constructor(a)
+  File "/share/apps/theano/0.8.2/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/sandbox/cuda/var.py", line 218, in float32_shared_constructor
+    enable_cuda=False)
+  File "/share/apps/theano/0.8.2/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/sandbox/cuda/__init__.py", line 554, in use
+    cuda_ndarray.cuda_ndarray.select_a_gpu()
+RuntimeError: ('Not able to select available GPU from 1 cards (all CUDA-capable devices are busy or unavailable).', 'You asked to force this device and it failed. No fallback to the cpu or other gpu device.')
+-------------------------------------------------------------------
+PyCUDA ERROR: The context stack was not empty upon module cleanup.
+-------------------------------------------------------------------
+A context was still active when the context stack was being
+cleaned up. At this point in our execution, CUDA may already
+have been deinitialized, so there is no way we can finish
+cleanly. The program will be aborted now.
+Use Context.pop() to avoid this problem.
+-------------------------------------------------------------------
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code.. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[63130,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+
+
