@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=1,mem=10GB
+#PBS -l walltime=1:00:00
+#PBS -N PBS_preprocessData
+#PBS -M lt1410@nyu.edu
+#PBS -j oe
+
+module purge
+module load theano/0.8.2
+module load yaml/intel/0.1.5
+module load scipy/intel/0.18.0
+#pip install --user hickle
+python /home/lt1410/.local/lib/python2.7/site-packages/hickle.py
+module load pillow/intel/2.7.0
+
+RUNDIR=$SCRATCH/MultiGPU/theano_alexnet/preprocessing/
+cd $RUNDIR
+bash generate_toy_data.sh
+
+# blank line
+
+
